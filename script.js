@@ -15,6 +15,8 @@ function getComputerChoice() {
 const getPlayerChoice = "Rock";
 
 function playRound(playerSelection, computerSelection) {
+	let computerScore = 0;
+	let playerScore = 0;
 	computerSelection = getComputerChoice().toLowerCase();
 	playerSelection = getPlayerChoice.toLowerCase();
 
@@ -28,10 +30,28 @@ function playRound(playerSelection, computerSelection) {
 		(computerSelection == "paper" && playerSelection == "rock") ||
 		(computerSelection == "scissors" && playerSelection == "paper")
 	) {
-		return `Computer WINS! ${computerSelection} beats ${playerSelection}`;
+		computerScore += 1;
+
+		return `Computer WINS! ${computerSelection} beats ${playerSelection}. The score is Player: ${playerScore}, Computer ${computerScore}`;
 	} else {
-		return `You WIN! ${playerSelection} beats ${computerSelection}`;
+		playerScore += 1;
+
+		return `You WIN! ${playerSelection} beats ${computerSelection}. Player Score is ${playerScore}.  Computer score is ${computerScore}`;
 	}
 }
 
-playRound();
+function playGame(playerScore, computerScore) {
+	// Score
+	playerScore = 0;
+	computerScore = 0;
+
+	// Loop to play 5 rounds
+	for (let i = 0; i < 5; i++) {
+		playRound();
+
+		console.log(playRound());
+		console.log(playerScore, computerScore);
+	}
+}
+
+playGame();
