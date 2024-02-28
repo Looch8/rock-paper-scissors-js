@@ -16,7 +16,8 @@ function getComputerChoice() {
 }
 
 // Get player Choice
-const getPlayerChoice = "Rock";
+
+const getPlayerChoice = prompt();
 
 function playRound(playerSelection, computerSelection) {
 	computerSelection = getComputerChoice().toLowerCase();
@@ -46,12 +47,13 @@ function playGame() {
 		console.log(playRound());
 	}
 
+	// Declare winner
 	if (computerScore == playerScore) {
-		return `DRAW!, the scores are Player: ${playerScore}, Computer: ${computerScore}`;
+		return `The game is a DRAW!, the scores are Player: ${playerScore}, Computer: ${computerScore}`;
 	} else if (computerScore > playerScore) {
-		return `Computer wins! the scores are Computer: ${computerScore}, Player ${playerScore}`;
+		return `Computer WINS the game! the scores are Computer: ${computerScore}, Player ${playerScore}`;
 	} else {
-		return `Player wins! The scores are Player: ${playerScore}, Computer: ${computerScore}`;
+		return `Player WINS the game! The scores are Player: ${playerScore}, Computer: ${computerScore}`;
 	}
 }
 console.log(playGame());
