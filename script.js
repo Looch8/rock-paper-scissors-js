@@ -1,3 +1,7 @@
+// Scores
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
 	// Generate random number
 	const getRandomNumber = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
@@ -15,8 +19,6 @@ function getComputerChoice() {
 const getPlayerChoice = "Rock";
 
 function playRound(playerSelection, computerSelection) {
-	let computerScore = 0;
-	let playerScore = 0;
 	computerSelection = getComputerChoice().toLowerCase();
 	playerSelection = getPlayerChoice.toLowerCase();
 
@@ -30,28 +32,26 @@ function playRound(playerSelection, computerSelection) {
 		(computerSelection == "paper" && playerSelection == "rock") ||
 		(computerSelection == "scissors" && playerSelection == "paper")
 	) {
-		computerScore += 1;
-
+		computerScore++;
 		return `Computer WINS! ${computerSelection} beats ${playerSelection}. The score is Player: ${playerScore}, Computer ${computerScore}`;
 	} else {
-		playerScore += 1;
-
+		playerScore++;
 		return `You WIN! ${playerSelection} beats ${computerSelection}. Player Score is ${playerScore}.  Computer score is ${computerScore}`;
 	}
 }
 
-function playGame(playerScore, computerScore) {
-	// Score
-	playerScore = 0;
-	computerScore = 0;
-
+function playGame() {
 	// Loop to play 5 rounds
 	for (let i = 0; i < 5; i++) {
-		playRound();
-
 		console.log(playRound());
-		console.log(playerScore, computerScore);
+	}
+
+	if (computerScore == playerScore) {
+		return `DRAW!, the scores are Player: ${playerScore}, Computer: ${computerScore}`;
+	} else if (computerScore > playerScore) {
+		return `Computer wins! the scores are Computer: ${computerScore}, Player ${playerScore}`;
+	} else {
+		return `Player wins! The scores are Player: ${playerScore}, Computer: ${computerScore}`;
 	}
 }
-
-playGame();
+console.log(playGame());
