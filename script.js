@@ -1,3 +1,13 @@
+// Query Selectors
+const choiceButtons = document.querySelectorAll("button");
+
+// Calling playround function
+choiceButtons.forEach((button) => {
+	button.addEventListener("click", () => {
+		console.log(button.id);
+	});
+});
+
 // Scores
 let playerScore = 0;
 let computerScore = 0;
@@ -43,9 +53,9 @@ function playRound(playerSelection, computerSelection) {
 
 function playGame() {
 	// Loop to play 5 rounds
-	for (let i = 0; i < 5; i++) {
-		console.log(playRound());
-	}
+	// for (let i = 0; i < 5; i++) {
+	console.log(playRound());
+	// }
 
 	// Declare winner
 	if (computerScore == playerScore) {
