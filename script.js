@@ -1,3 +1,18 @@
+// Query Selectors
+const choiceButtons = document.querySelectorAll("button");
+
+// Calling playround function
+choiceButtons.forEach((button) => {
+	button.addEventListener("click", function () {
+		const playerSelection = button.id;
+		const computerSelection = getComputerChoice().toLowerCase();
+		console.log(playerSelection);
+		console.log(computerSelection);
+
+		console.log(playRound(playerSelection, computerSelection));
+	});
+});
+
 // Scores
 let playerScore = 0;
 let computerScore = 0;
@@ -17,11 +32,10 @@ function getComputerChoice() {
 
 // Get player Choice
 
-const getPlayerChoice = prompt();
+// const getPlayerChoice = prompt();
 
 function playRound(playerSelection, computerSelection) {
-	computerSelection = getComputerChoice().toLowerCase();
-	playerSelection = getPlayerChoice.toLowerCase();
+	// playerSelection = getPlayerChoice();
 
 	// Draw conditions
 	if (computerSelection == playerSelection) {
@@ -43,9 +57,9 @@ function playRound(playerSelection, computerSelection) {
 
 function playGame() {
 	// Loop to play 5 rounds
-	for (let i = 0; i < 5; i++) {
-		console.log(playRound());
-	}
+	// for (let i = 0; i < 5; i++) {
+	console.log(playRound());
+	// }
 
 	// Declare winner
 	if (computerScore == playerScore) {
