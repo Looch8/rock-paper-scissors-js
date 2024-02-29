@@ -3,8 +3,13 @@ const choiceButtons = document.querySelectorAll("button");
 
 // Calling playround function
 choiceButtons.forEach((button) => {
-	button.addEventListener("click", () => {
-		console.log(button.id);
+	button.addEventListener("click", function () {
+		const playerSelection = button.id;
+		const computerSelection = getComputerChoice().toLowerCase();
+		console.log(playerSelection);
+		console.log(computerSelection);
+
+		console.log(playRound(playerSelection, computerSelection));
 	});
 });
 
@@ -27,11 +32,10 @@ function getComputerChoice() {
 
 // Get player Choice
 
-const getPlayerChoice = prompt();
+// const getPlayerChoice = prompt();
 
 function playRound(playerSelection, computerSelection) {
-	computerSelection = getComputerChoice().toLowerCase();
-	playerSelection = getPlayerChoice.toLowerCase();
+	// playerSelection = getPlayerChoice();
 
 	// Draw conditions
 	if (computerSelection == playerSelection) {
