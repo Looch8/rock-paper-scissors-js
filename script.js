@@ -1,15 +1,19 @@
 // Query Selectors
 const choiceButtons = document.querySelectorAll("button");
+const displayResults = document.querySelector("#display-results");
+
+// Created Elements
+const playResults = document.createElement("p");
 
 // Calling playround function
 choiceButtons.forEach((button) => {
 	button.addEventListener("click", function () {
 		const playerSelection = button.id;
 		const computerSelection = getComputerChoice().toLowerCase();
-		console.log(playerSelection);
-		console.log(computerSelection);
 
-		console.log(playRound(playerSelection, computerSelection));
+		// Display round
+		playResults.textContent = playRound(playerSelection, computerSelection);
+		displayResults.appendChild(playResults);
 	});
 });
 
