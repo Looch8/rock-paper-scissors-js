@@ -1,9 +1,11 @@
 // Query Selectors
 const choiceButtons = document.querySelectorAll("button");
 const displayResults = document.querySelector("#display-results");
+const displayWinner = document.querySelector("#winner");
 
 // Created Elements
 const playResults = document.createElement("p");
+const winnerElement = document.createElement("h1");
 
 // Calling playround function
 choiceButtons.forEach((button) => {
@@ -14,6 +16,9 @@ choiceButtons.forEach((button) => {
 		// Display round
 		playResults.textContent = playRound(playerSelection, computerSelection);
 		displayResults.appendChild(playResults);
+
+		// Check if game is over
+		playGame();
 	});
 });
 
@@ -60,18 +65,11 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function playGame() {
-	// Loop to play 5 rounds
-	// for (let i = 0; i < 5; i++) {
-	console.log(playRound());
-	// }
-
 	// Declare winner
-	if (computerScore == playerScore) {
-		return `The game is a DRAW!, the scores are Player: ${playerScore}, Computer: ${computerScore}`;
-	} else if (computerScore > playerScore) {
-		return `Computer WINS the game! the scores are Computer: ${computerScore}, Player ${playerScore}`;
-	} else {
-		return `Player WINS the game! The scores are Player: ${playerScore}, Computer: ${computerScore}`;
+	displayWinner.appendChild(winnerElement);
+	if (computerScore == 5) {
+		winnerElement.textContent = `Computer WINS the game! the scores are Computer: ${computerScore}, Player ${playerScore}`;
+	} else if (playerScore == 5) {
+		winnerElement.textContent = `Player WINS the game! The scores are Player: ${playerScore}, Computer: ${computerScore}`;
 	}
 }
-console.log(playGame());
