@@ -17,7 +17,7 @@ choiceButtons.forEach((button) => {
 		playResults.textContent = playRound(playerSelection, computerSelection);
 		displayResults.appendChild(playResults);
 
-		// Check if game is over
+		// Check if game is over after each click
 		playGame();
 	});
 });
